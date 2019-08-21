@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+<div fxFlex="40%">
+<ngx-auth-firebaseui class="search"
+  [guestEnabled] = "true"
+  [providers] = "[providers.Google]"
+  (onSuccess) = "success($event)"
+  >
+</ngx-auth-firebaseui>
+</div>
+</div>
