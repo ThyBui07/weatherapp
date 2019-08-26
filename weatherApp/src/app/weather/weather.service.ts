@@ -9,7 +9,7 @@ import { WeatherData } from '../shared/interfaces/weather-data';
   providedIn: 'root'
 })
 export class WeatherService {
-  private URL= 'http://api.openweathermap.org/data/2.5/weather?q=';
+  private URL= 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=';
   private KEY= 'd83374d1d678d118ad4e4909582a5fa3';
   private IMP= '&units=imperial';
 

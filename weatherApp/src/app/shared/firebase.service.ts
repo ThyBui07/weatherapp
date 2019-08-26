@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { City } from './interfaces/city';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,21 @@ export class FirebaseService {
         return { ...data };
       }))
     );
+  }
+
+  getCityByCityId (userId: string, cityId: City) {
+    return this.afs.doc(`users/${userId}/cities/${cityId}`);
+  }
+
+  updateCity(userId: string, city: City, weather) {
+    const newCity = {
+      weather,
+      time: new Date()
+    };
+    return this.getCityByCityId(userId, city).set(newCity);
+  }
+
+  deleteCity(userId: string, city: City) {
+    return this.getCityByCityId(userId, city).delete();
   }
 }

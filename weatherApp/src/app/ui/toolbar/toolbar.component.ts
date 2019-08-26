@@ -10,7 +10,7 @@ import { UserAuthService } from '../../user/auth-service.service';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent {
-
+  //set handset: scale: responsive
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)

@@ -20,8 +20,8 @@
               <button mat-raised-button color="primary">Submit</button>
           </div> -->
 
-          <div class="button-row" sytle="margin-left: 10px;" *ngIf="saveForm">
-              <button mat-raised-button color="primary">Update</button>
+          <div class="button-row" sytle="margin-left: 10px;" *ngIf="updateForm">
+              <button mat-raised-button color="primary" (click)="saveUpdateCity(city)">Update</button>
           </div>
         </form>
   </div>
@@ -39,7 +39,7 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
             <div style="text-align: center">
-            <button style="font-size: 20px;" mat-button mat-suffix mat-icon-button color="warn" class="delete-button" arial-label="delete" matTooltip="Delete City">
+            <button style="font-size: 20px;" mat-button mat-suffix mat-icon-button color="warn" class="delete-button" arial-label="delete" matTooltip="Delete City" (click)="deleteCity(city.id)">
                <mat-icon>delete</mat-icon>
             </button>
             <button style="font-size: 20px;" mat-button mat-suffix mat-icon-button color="primary" class="update-button"

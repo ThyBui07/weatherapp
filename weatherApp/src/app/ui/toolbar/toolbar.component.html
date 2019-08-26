@@ -1,4 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
+    <!-- 'Handset' is one of the breakpoint names of angular material layout. The list of breakpoint names is Handset, Tablet, Web, HandsetPortrait, TabletPortrait, WebPortrait, HandsetLandscape, TabletLandscape, WebLandscape.
+    Please check https://material.io/design/layout/responsive-layout-grid.html#breakpoints for more information about material layout breakpoints -->
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -19,7 +21,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>weatherApp</span>
+      <span>Weather App</span>
       <span class="spacer"></span>
       <span>
         <a class="bg-color" *ngIf="!(userAuth.user$ | async)?.uid" [routerLink]="['/user/login']">
@@ -28,9 +30,9 @@
         <a class="bg-color" *ngIf="( userAuth.user$ | async)?.uid" [routerLink]="['/user/profile']">
           Profile
         </a>
-        <a class="bg-color" *ngIf="( userAuth.user$ | async)?.uid" (click)="userAuth.logout()">
+        <!-- <a class="bg-color" *ngIf="( userAuth.user$ | async)?.uid" (click)="userAuth.logout()">
           Logout
-        </a>
+        </a> -->
       </span>
     </mat-toolbar>
     <!-- Add Content Here -->

@@ -13,16 +13,17 @@ export class SavedCitiesComponent implements OnInit {
   city: any = {}; //object for NgFor
   panelOpenState = false;
   updateForm = true;
+  userId: string;
 
   constructor(private firebaseService: FirebaseService,
               private route: ActivatedRoute,
               ) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      console.log(id);
-      this.getCities(id);
+    this.userId = this.route.snapshot.paramMap.get('id');
+    if (this.userId) {
+      console.log(this.userId);
+      this.getCities(this.userId);
     }
   }
 
@@ -40,6 +41,16 @@ export class SavedCitiesComponent implements OnInit {
     this.city.description = city.weather.description;
     this.city.temperature = city.weather.temperature;
     this.city.id = city.id;
+  }
+
+  saveUpdateCity (newCity: City) {
+    console.log(newCity);
+    this.firebaseService.updateCity(this.userId, this.city.id, newCity);
+    this.city = {};
+  }
+
+  deleteCity(city: City) {
+    this.firebaseService.deleteCity(this.userId, city);
   }
 
 }

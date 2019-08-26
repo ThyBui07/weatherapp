@@ -10,7 +10,7 @@ import { Weather } from 'src/app/shared/interfaces/weather';
 })
 export class WeatherSearchComponent implements OnInit {
   query = '';
-  errorMessage = '';
+  errorMessage: any = '';
 
   constructor(private weatherService: WeatherService, private weatherDataService: WeatherDataService) { }
 
